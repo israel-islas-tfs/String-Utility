@@ -1,13 +1,16 @@
 """Command-line menu for the String Utility Library."""
 
+from colorama import Fore, init
 from .capitalizer import capitalize_words
+
+init(autoreset=True)
 
 
 def show_menu() -> None:
-    print("\nString Utility Library")
-    print("1. Capitalize words")
-    print("2. Show examples")
-    print("3. Exit")
+    print(f"{Fore.YELLOW}\nString Utility Library")
+    print(f"{Fore.YELLOW}1. Capitalize words")
+    print(f"{Fore.YELLOW}2. Show examples")
+    print(f"{Fore.YELLOW}3. Exit")
 
 
 def show_examples() -> None:
@@ -28,10 +31,10 @@ def show_examples() -> None:
 def main() -> None:
     while True:
         show_menu()
-        choice = input("Select an option: ").strip()
+        choice = input(f"{Fore.RED}Select an option: ").strip()
 
         if choice == "1":
-            text = input("Enter a string to capitalize: ")
+            text = input(f"{Fore.RED}Enter a string to capitalize: ")
             print(f"Result: {capitalize_words(text)}")
         elif choice == "2":
             show_examples()
